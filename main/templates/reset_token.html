@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% if title %}
+<title>Sira-{{ title }}</title>
+{% else %}
+<title>Sira</title>
+{% endif %}
+{% block content %}
+<div class="container">
+    <h2>Reset Password</h2>
+        <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group"></div>
+        <!-- password -->
+        {{ form.password.label(class='form-control-label')}}
+        {% if form.password.errors %}
+            {{ form.password(class='form-control form-control-sm is-invalid')}}
+            <div class="invalid-feedback">
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+
+            </div>
+            {% else %}
+                {{ form.password(class='form-control form-control-lg')}}
+            {% endif %}
+    <div class="form-group">
+        <!-- confirmpassword -->
+        {{ form.confirmPassWord.label(class='form-control-label')}}
+        {% if form.confirmPassWord.errors %}
+            {{ form.confirmPassWord(class='form-control form-control-sm is-invalid')}}
+            <div class="invalid-feedback">
+                {% for error in form.confirmPassWord.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+                {{ form.confirmPassWord(class='form-control form-control-lg')}}
+            {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.submit(class='btn btn-outline-info')}}
+    </div>
+    </div>
+</form>
+</div>
+        <div class="form-group">
+            {{ form.submit(class='btn btn-outline-info')}}
+        </div>
+    </form>
+</div>
+</div>
+{% endblock content %}

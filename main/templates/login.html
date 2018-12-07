@@ -7,9 +7,9 @@
 {% block content %}
 <div class="container">
     <h2>Log in</h2>
-        <form action="/register" method="POST">
+        <form action="/login" method="POST">
         {{ form.hidden_tag() }}
-        <div class="form-group"></div>
+        <div class="form-group">
             <!-- email -->
             {{ form.email.label(class='form-control-label')}}
             {% if form.email.errors %}
@@ -18,13 +18,12 @@
                     {% for error in form.email.errors %}
                         <span>{{ error }}</span>
                         {% endfor %}
-
-
                 </div>
                 {% else %}
                     {{ form.email(class='form-control')}}
                 {% endif %}
-                <div class="form-group"></div>
+        </div>
+                <div class="form-group">
                 <!-- password -->
                 {{ form.password.label(class='form-control-label')}}
                 {% if form.password.errors %}
@@ -37,18 +36,21 @@
                     {% else %}
                         {{ form.password(class='form-control form-control-lg')}}
                     {% endif %}
-                <div class="form-check">
-                    {{ form.remember(class='form-check-input') }}
-                    {{ form.remember.label(class='form-check-input') }}
                 </div>
-                <small class="text-muted ml-2">
-                    <a href="#">Forgot Password</a>
-                </small>
+                <div class="form-check">
+                    {{ form.remember.label(class='form-check-input') }}
+                    {{ form.remember(class='form-check-input') }}
+                </div>
+
         <div class="form-group">
             {{ form.submit(class='btn btn-outline-info')}}
-        </div>
+            <small class="text-muted ml-2">
+                    <a href="{{ url_for('reset_Password_Request') }}">Forgot Password</a>
+                </small>
+            </div>
     </form>
-</div>
+
+
     <div class="border-top pt-3">
         <small class="text-muted">
             Don't have an account? <a class="ml-2" href="{{url_for('register')}}">Register Here</a>

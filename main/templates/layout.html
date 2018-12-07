@@ -26,12 +26,21 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
                 </li>
+                {% if current_user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('login')}}">Login</a>
-                </li>
+                        <a class="nav-link" href="{{url_for('account')}}">Account</a>
+                    </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('register')}}">register</a>
+                    <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
                 </li>
+                {% else %}
+                <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                    </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('register')}}">register</a>
+                    </li>
+                {% endif %}
             </ul>
     </nav>
     <div class="jumbotron">
@@ -41,6 +50,7 @@
             <div class="text-center">
             </div>
         </div>
+        <div class="container">
         {% with messages=get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category,message in messages %}
@@ -50,7 +60,10 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-    {% block content %}{% endblock %}
+    </div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>

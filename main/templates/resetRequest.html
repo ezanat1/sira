@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% if title %}
+<title>Sira-{{ title }}</title>
+{% else %}
+<title>Sira</title>
+{% endif %}
+{% block content %}
+<div class="container">
+    <h2>Reset Password</h2>
+        <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group"></div>
+            <!-- email -->
+            {{ form.email.label(class='form-control-label')}}
+            {% if form.email.errors %}
+                {{ form.email(class='form-control form-control-sm is-invalid')}}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.email(class='form-control')}}
+                {% endif %}
+        <div class="form-group">
+            {{ form.submit(class='btn btn-outline-info')}}
+        </div>
+    </form>
+</div>
+{% endblock content %}
