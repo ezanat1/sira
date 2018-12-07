@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% if title %}
+<title>Sira-{{ title }}</title>
+{% else %}
+<title>Sira</title>
+{% endif %}
+{% block content %}
+    <div class="jumbotron">
+            <h1 class="display-4">See Your Activities</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">See Examples</a>
+        </p>
+    </div>
+    <div class="container">
+        {% for w in newList %}
+        <h1>{{ w }}</h1>
+        {% endfor %}
+        <h1>Your Activities</h1>
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+{% endblock %}
+
+
+
+

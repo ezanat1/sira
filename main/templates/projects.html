@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% if title %}
+<title>Sira-{{ title }}</title>
+{% else %}
+<title>Sira</title>
+{% endif %}
+{% block content %}
+    <div class="jumbotron">
+            <h1 class="display-4">Start Your Campaign</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">See Examples</a>
+        </p>
+    </div>
+    <div class="container">
+        <h1>The Project</h1>
+    <div class="row">
+
+
+        <form class="col-sm-12" action="/addProject" method="POST">
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                        <label for=" labelFor">Project Name</label>
+                        <input type=" text" id=" projectName" class="form-control" name="projectName">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for=" labelFor">Tags</label>
+                        <input type=" inputType" id=" projectTags" class="form-control" name="projectTags">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for=" labelFor">Founding Members</label>
+                    <input type=" inputType" id=" projectMembers" class="form-control" name="projectMembers" placeholder="Please post at least two of founding members">
+                </div>
+                </div>
+                <div class="form-group">
+                    <label for=" labelFor">Description of Project</label>
+                    <textarea type=" inputType" id=" projectDescription" class="form-control" name="projectDescription" placeholder="Desicribe your project"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for=" labelFor">The Problem</label>
+                    <input type=" inputType" id=" projectMembers" class="form-control" name="projectProblem" placeholder="Please post at least two of founding members">
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for=" labelFor">The Solution</label>
+                    <textarea type=" inputType" id=" labelFor" class="form-control" name="projectSolution" placeholder="Describe your solution"></textarea>
+                  </div>
+                  <div class="form-group">
+                        <label for="exampleFormControlFile1">Submit Your Business Model.pdf</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                </div>
+                  <!-- <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div> -->
+                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+              </form>
+
+    </div>
+</div>
+
+{% endblock %}
+</body>
+
+<script>
+    $(document).ready(function() {
+        $('.file-upload').file_upload();});
+
+</script>
