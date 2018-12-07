@@ -2,7 +2,7 @@ from flask import Flask, render_template,request,flash,redirect,url_for
 from main import app,db,bcrypt
 from main.forms import BusinessForm,Login,Registration
 from main.models import User,BusinessClass
-
+from flask_login import login_user
 
 # class Registration(FlaskForm)
 @app.route('/')
@@ -14,8 +14,12 @@ def index():
 def login():
     form=Login()
     if form.validate_on_submit():
-        flash(f'Succesfully Loged in {form.firstName.data}!','success')
-        return redirect(url_for('dashboard'))
+        user=User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password,form.password.data):
+            login_user(user,remember=form.remember.data)
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Unsuccessfull Log-in','danger')
     return render_template('login.html',title='Login',form=form)
 
 @app.route('/register',methods=['GET','POST'])

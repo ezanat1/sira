@@ -1,5 +1,6 @@
 from datetime import datetime
 from main import db,login_manager
+from flask_login import UserMixin
 
 '''
 Two tables for application
@@ -8,7 +9,7 @@ Two tables for application
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class User(db.Model):
+class User(db.Model,UserMixin):
     id=db.Column(db.Integer,primary_key=True)
     firstName=db.Column(db.String(30),unique=False,nullable=False)
     middleName=db.Column(db.String(30),unique=False,nullable=False)
