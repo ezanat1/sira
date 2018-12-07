@@ -1,18 +1,25 @@
 from datetime import datetime
-from main import db
+from main import db,login_manager
+
+'''
+Two tables for application
+'''
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class User(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    firstName=db.Column(db.String(30),unique=True,nullable=False)
-    middleName=db.Column(db.String(30),unique=True,nullable=False)
-    lastName=db.Column(db.String(30),unique=True,nullable=False)
+    firstName=db.Column(db.String(30),unique=False,nullable=False)
+    middleName=db.Column(db.String(30),unique=False,nullable=False)
+    lastName=db.Column(db.String(30),unique=False,nullable=False)
     email=db.Column(db.String(120),unique=True,nullable=False)
     # image_file=db.Column(db.String,primary_key=True)
     password=db.Column(db.String(60),nullable=False)
-    post=db.relationship('BusinessClass',backref='author',lazy=True)
+    posts=db.relationship('BusinessClass',backref='author',lazy=True)
 
     def __repr__(self):
-        return f"User('{self.userName}','{self.email}',{'self.image_file'})"
+        return f"User('{self.firstName}','{self.email}')"
 
 class BusinessClass(db.Model):
     id=db.Column(db.Integer,primary_key=True)

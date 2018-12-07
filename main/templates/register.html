@@ -6,51 +6,106 @@
 {% endif %}
 {% block content %}
     <div class="container">
-        <!-- <h1>Register</h1>
-        <form action="/register" method="POST" class="">
-        <label >First Name</label>
-        <input name="fN" type="text">
-        <label >Last Name</label>
-        <input name="email" type="text">
-        <label >Middle Name</label>
-        <input name="email" type="email">
-        <label >User Name</label>
-        <input name="email" type="text">
-        <label >Email</label>
-        <input name="email" type="email">
-        <label >Password</label>
-        <input name="password" type="password">
-        <button class="btn btn-primary" type="submit">Button</button> -->
+        <h2>Register</h2>
+        <form action="/register" method="POST">
         {{ form.hidden_tag() }}
         <div class="form-group">
             <!-- firstname -->
-            {{ from.firstName.label(class='from-control-label')}}
-            {{ from.firstName(class='form-control')}}
+            {{ form.firstName.label(class='form-control-label') }}
+            {% if form.firstName.errors %}
+                {{ form.firstName(class='form-control form-control-lg is-invalid') }}
+                <div class="invalid-feedback">
+                    {% for error in form.firstName.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.firstName(class='form-control form-control-lg') }}
+                {% endif %}
+
         </div>
         <div class="form-group">
             <!-- middle name -->
-            {{ from.middleName.label(class='from-control-label')}}
-            {{ from.middleName(class='form-control')}}
+            {{ form.middleName.label(class='form-control-label')}}
+            {% if form.middleName.errors %}
+                {{ form.middleName(class='form-control form-control-sm is-invalid')}}
+                <div class="invalid-feedback">
+                    {% for error in form.middleName.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+
+                </div>
+                {% else %}
+                    {{ form.middleName(class='form-control form-control-lg')}}
+                {% endif %}
         </div>
         <div class="form-group">
             <!-- last name -->
-            {{ from.lastName.label(class='from-control-label')}}
-            {{ from.lastName(class='form-control')}}
+            {{ form.lastName.label(class='form-control-label')}}
+            {% if form.lastName.errors %}
+                {{ form.lastName(class='form-control form-control-sm is-invalid')}}
+                <div class="invalid-feedback">
+                    {% for error in form.lastName.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+
+                </div>
+                {% else %}
+                    {{ form.lastName(class='form-control form-control-lg')}}
+                {% endif %}
         </div>
         <div class="form-group"></div>
             <!-- email -->
-            {{ from.email.label(class='from-control-label')}}
-            {{ from.email(class='from-control')}}
+            {{ form.email.label(class='form-control-label')}}
+            {% if form.email.errors %}
+                {{ form.email(class='form-control form-control-sm is-invalid')}}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+
+
+                </div>
+                {% else %}
+                    {{ form.email(class='form-control')}}
+                {% endif %}
             <div class="form-group"></div>
             <!-- password -->
-            {{ from.password.label(class='from-control-label')}}
-            {{ from.password(class='form-control')}}
-        <div class="form-group">
-            {{ from.confirmPassWord.label(class='from-control-label')}}
-            {{ from.confirmPassWord(class='form-control')}}
-        </div>
+            {{ form.password.label(class='form-control-label')}}
+            {% if form.password.errors %}
+                {{ form.password(class='form-control form-control-sm is-invalid')}}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
 
+                </div>
+                {% else %}
+                    {{ form.password(class='form-control form-control-lg')}}
+                {% endif %}
+        <div class="form-group">
+            <!-- confirmpassword -->
+            {{ form.confirmPassWord.label(class='form-control-label')}}
+            {% if form.confirmPassWord.errors %}
+                {{ form.confirmPassWord(class='form-control form-control-sm is-invalid')}}
+                <div class="invalid-feedback">
+                    {% for error in form.confirmPassWord.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.confirmPassWord(class='form-control form-control-lg')}}
+                {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class='btn btn-outline-info')}}
+        </div>
         </div>
     </form>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have an account <a class="ml-2" href="{{url_for('login')}}">Sign In</a>
+        </small>
     </div>
 {% endblock %}
