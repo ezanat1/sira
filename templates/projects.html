@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
+<title>Start Project</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<ul class="nav ">
+<li class="nav-item">
+<a class="nav-link active" href="index.html">Browse Projects</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="projects.html">Start Project</a>
+</li>
+<li class="nav-item">
+<a class="nav-link disabled" href="#">Disabled</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+</li>
+</ul>
+</nav>
+<body>
+    <div class="jumbotron">
+            <h1 class="display-4">Start Your Campaign</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">See Examples</a>
+        </p>
+    </div>
+    <div class="container">
+        <h1>The Project</h1>
+    <div class="row">
+        <!-- <form class="col s12" action="/addProject" method="POST">
+            <label for=" labelFor">Project Name</label>
+            <input type=" text" id=" projectName" class="form-control" name="projectName">
+            <label for=" labelFor">Tags</label>
+            <input type=" inputType" id=" projectTags" class="form-control" name="projectTags">
+            <label for=" labelFor">Description of Project</label>
+            <textarea type=" inputType" id=" projectDescription" class="form-control" name="projectDescription" placeholder="Desicribe your project"></textarea>
+            <label for=" labelFor">Founding Members</label>
+            <input type=" inputType" id=" projectMembers" class="form-control" name="projectMembers" placeholder="Please post at least two of founding members">
+            <label for=" labelFor">The Problem</label>
+            <textarea type=" inputType" id=" projectProblem" class="form-control" name="projectProblem" placeholder="Describe the problem you are fixing"></textarea>
+            <label for=" labelFor">The Solution</label>
+            <textarea type=" inputType" id=" labelFor" class="form-control" name="projectSolution" placeholder="Describe your solution"></textarea>
+            <label class="file-upload btn btn-primary">
+                    Browse for file ... <input type="file"/>
+                </label>
+            <hr>
+            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+        </form> -->
+
+        <form class="col-sm-12" action="/addProject" method="POST">
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                        <label for=" labelFor">Project Name</label>
+                        <input type=" text" id=" projectName" class="form-control" name="projectName">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for=" labelFor">Tags</label>
+                        <input type=" inputType" id=" projectTags" class="form-control" name="projectTags">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for=" labelFor">Founding Members</label>
+                    <input type=" inputType" id=" projectMembers" class="form-control" name="projectMembers" placeholder="Please post at least two of founding members">
+                </div>
+                </div>
+                <div class="form-group">
+                    <label for=" labelFor">Description of Project</label>
+                    <textarea type=" inputType" id=" projectDescription" class="form-control" name="projectDescription" placeholder="Desicribe your project"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for=" labelFor">The Problem</label>
+                    <input type=" inputType" id=" projectMembers" class="form-control" name="projectProblem" placeholder="Please post at least two of founding members">
+
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for=" labelFor">The Solution</label>
+                    <textarea type=" inputType" id=" labelFor" class="form-control" name="projectSolution" placeholder="Describe your solution"></textarea>
+                  </div>
+                  <div class="form-group">
+                        <label for="exampleFormControlFile1">Submit Your Business Model.pdf</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                </div>
+                  <!-- <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div> -->
+                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+              </form>
+
+    </div>
+</div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.file-upload').file_upload();});
+
+</script>
+</body>
+</html>
